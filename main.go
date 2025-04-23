@@ -6,7 +6,7 @@ import (
 )
 
 var ipregistry = map[string][]string{
-	"8.8.8.8":      {"dns.google."},
+	"8.8.8.8": {"dns.google."},
 }
 
 /*
@@ -48,6 +48,10 @@ func main() {
 	for _, ip := range ips {
 		go func(ip string) {
 			hosts := resolve(ip)
+			if len(hosts) == 0 {
+				results <- fmt.Sprintf("No hostnames found for IP: %s", ip)
+				return
+			}
 			for _, h := range hosts {
 				results <- fmt.Sprintf("%s = %s", ip, h)
 			}
