@@ -8,14 +8,8 @@ This Go application performs reverse DNS lookups for a list of IP addresses. It 
 - Performs reverse DNS lookups using Go's `net.LookupAddr` function.
 - Dynamically updates the registry with resolved hostnames.
 - Outputs the IP-to-hostname mappings to the console.
+- Includes unit tests for the `resolve` function with mock DNS lookups.
 
-## How It Works
-
-1. The application initializes a local registry (`ipregistry`) with predefined IP-to-hostname mappings.
-2. It iterates over a list of IP addresses and attempts to resolve their hostnames:
-   - If the IP exists in the local registry, it uses the cached hostnames.
-   - If the IP is not in the registry, it performs a reverse DNS lookup and updates the registry with the resolved hostnames.
-3. The results are printed to the console in the format: `IP = hostname`.
 
 ## Prerequisites
 
@@ -27,3 +21,24 @@ This Go application performs reverse DNS lookups for a list of IP addresses. It 
    ```bash
    git clone <repository-url>
    cd ipregistry
+   ```
+
+2. Run the application:
+   ```bash
+   go run main.go
+   ```
+
+3. The output will display the resolved hostnames for the given IP addresses.
+
+## Running Tests
+
+Unit tests are included for the `resolve` function. The tests use a mock implementation of the `search` function to simulate DNS lookups.
+
+To run the tests, use the following command:
+```bash
+go test
+```
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
