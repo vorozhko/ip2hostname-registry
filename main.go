@@ -6,9 +6,7 @@ import (
 )
 
 var ipregistry = map[string][]string{
-	"8.8.8.8":      {"dns.google"},
-	"104.21.56.30": {"vorozhko.net"},
-	"10.0.0.1":     {"dev-host1", "dev-host2"},
+	"8.8.8.8":      {"dns.google."},
 }
 
 /*
